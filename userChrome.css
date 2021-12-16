@@ -1,0 +1,269 @@
+/* 
+firefox color:
+https://color.firefox.com/?theme=XQAAAAI6AgAAAAAAAABBKYhm849SCicxcUCyhXcGHf3p79EhVPY1ahrnannSLhj71Yd4LPBhuYWhpMuqoA7EkSgNqhoPPlDOpW4TWtdCnJtc1jIYjLQGa0YEx-HHo6HNw4l0SO7rvAqPcoLQhGd9_XtJBWrfwfL3Kk202kTydqSAN82mVOLvYpjmBTOMyJSjIM92EqMR5NRROdiMw5MQbqxYKwKqM-TzPnIcxltz-Xr6sM4-rB4JBALqMsbuA9bbHBx36Sp1LgyYrUYTDP3634QyG3dWSN3LlQ5kfqAWL8UX7aoZZntzRBLbUSDrArY7X-nbqpu3zHNw5APs6cVIJq_X04AmH5NvsQy7AGNdG90qBOkgtsplhwzRzZA_-1UcVQ 
+*/
+
+/* Firefox Compact Mode
+ * Copyright (c) 2021 Danny Colin
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+@-moz-document url("about:newtab") {
+  body {
+    background-color: #282a36 !important;
+    /* background-color: rgba(40, 42, 54, 0.5) !important; */
+  }
+}
+
+:root {
+  /* margin-top: 3px !important; */
+  /* Tabbar: reduce tab margin */
+  --tab-block-margin: 3px !important;
+}
+
+/* Tab: Reduce height */
+.tabbrowser-tab {
+  margin-top: -1px important;
+  /* padding-bottom: 2px important; */
+  min-height: 23px !important;
+  max-height: 23px !important;
+  /* border-radius: 12px !important; */
+}
+
+/* Tab: Ensure tab height doesn't augment when arrowscrollbox is visible  */
+#tabbrowser-arrowscrollbox {
+  --tab-min-height: 30px !important;
+  max-height: var(--tab-min-height);
+  margin: 2px !important;
+}
+
+/* Tab: Attention icon */
+.tabbrowser-tab:is([image], [pinned])
+  > .tab-stack
+  > .tab-content[attention]:not([selected="true"]),
+.tabbrowser-tab
+  > .tab-stack
+  > .tab-content[pinned][titlechanged]:not([selected="true"]) {
+  background-position-x: left 2px !important;
+  background-position-y: bottom 12.5px !important;
+  border-radius: 12px !important;
+}
+
+/* tab border */
+/* .tab-content[selected="true"] {
+  margin-top: 1px !important;
+  margin-bottom: 1px !important;
+  border: 3px solid #50527f !important;
+  border-radius: 12px !important;
+} */
+
+.tab-content[selected="true"]:active {
+  /* transition-property: transform; */
+  transition-duration: 0s;
+  transition-timing-function: ease-in-out;
+  transform: scale(0.975);
+}
+
+/* URLBar: Fix vertical alignment */
+#urlbar[breakout="true"]:not([open="true"]) {
+  --urlbar-height: 30px !important;
+  --urlbar-toolbar-height: 30px !important;
+}
+
+/* URLBar: Fix URL address vertical aligment when megabar is open */
+#urlbar[breakout="true"][open="true"] {
+  --urlbar-toolbar-height: 30px !important;
+}
+
+/* URLBar: Reduce row items padding */
+.urlbarView-row-inner {
+  padding-inline: var(--urlbarView-item-inline-padding);
+  padding-block: 2px !important;
+}
+
+/* URLBar: Reduce and realign row bookmark icons */
+.urlbarView-type-icon {
+  width: 10px !important;
+  height: 10px !important;
+  /* margin-bottom: 0 !important; */
+  margin-inline-start: 10px !important;
+}
+
+/* URLBar: Reduce "This time, serach with" padding */
+#urlbar .search-one-offs:not([hidden]) {
+  padding-block: 4px !important;
+}
+
+/* Searchbar: Ensure toolbar height doesn't augment when searchbar is visible */
+#urlbar-container,
+#search-container {
+  padding-block: 0 !important;
+}
+
+/* Searchbar: Make sure the min-height of the input is the same as the popup */
+#search-container {
+  min-width: 192px !important;
+}
+
+/* Toolbar: Reduce spacing */
+#urlbar-container {
+  --urlbar-container-height: 32px !important;
+  /* margin-bottom: 2px !important; */
+}
+
+/* Reload Button: Fix vertical alignment */
+#reload-button {
+  margin-block-start: -2px !important;
+}
+
+/* AppMenu: Header */
+.panel-header {
+  padding: 4px 0 0 4px !important;
+}
+
+/* AppMenu: Header button */
+.panel-header > .subviewbutton-back {
+  padding: 4px !important;
+}
+
+/* Windows 10 context menu */
+@media (-moz-os-version: windows-win10) {
+  /* Context Menu: Reduce vertical space */
+  menupopup > menuitem,
+  menupopup > menu {
+    padding-block: 2px !important;
+  }
+}
+
+#star-button-box,
+#back-button,
+#forward-button {
+  display: none !important;
+}
+
+/* ------------------------------- */
+/*
+ * Description: Personnal toolbar in vertical position on the left
+ *              side of firefox's window 
+ *
+ * Screenshot: https://imgur.com/bjyJH9X
+ *
+ * Contributor(s): erlotinib
+ */
+
+:root {
+  /* The space between the top of the window and
+   * the beginning of the toolbar may change 
+   * between OS/density/...
+   * This variable may need to be adjusted in 
+   * order to have the bar at the right place
+   */
+  --space-from-top-of-window: 80px;
+}
+
+/* Code from Faviconized Bookmarks from Okamoi */
+
+#PersonalToolbar .bookmark-item > .toolbarbutton-text {
+  display: none !important;
+}
+
+#PersonalToolbar .bookmark-item > .toolbarbutton-icon {
+  margin-inline-end: 0px !important;
+}
+/* ---------------- */
+
+/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/vertical_bookmarks_toolbar.css made available under Mozilla Public License v. 2.0
+See the above repository for updates as well as full license text. */
+
+/* Makes bookmarks toolbar appear vertically at the left side of the window */
+
+@-moz-document url(chrome://browser/content/browser.xhtml)
+{
+  :root:not([inDOMFullscreen]) {
+    --uc-vertical-toolbar-width: 30px;
+  }
+
+  #PersonalToolbar {
+    position: fixed;
+    display: flex;
+    flex-direction: left;
+    left: 0;
+    width: var(--uc-vertical-toolbar-width, 0);
+
+    /* These create a empty area to the bottom of the toolbar, which is to mask a fact that we don't know exactly how high the toolbar should be */
+    height: 100vh;
+    max-height: 100vh !important;
+    padding-bottom: 120px !important;
+  }
+
+  #personal-bookmarks {
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+
+  #PersonalToolbar > #personal-bookmarks > #PlacesToolbar > hbox {
+    -moz-box-orient: vertical !important;
+  }
+  #PersonalToolbar #PlacesToolbarItems {
+    display: flex;
+    flex-direction: column;
+  }
+  #PersonalToolbar .toolbarbutton-1 {
+    padding-block: 10px !important;
+  }
+  #PersonalToolbar #PlacesToolbarItems > .bookmark-item {
+    padding-block: 4px !important;
+  }
+
+  body > #browser,
+  body > #browser-bottombox,
+  #customization-container {
+    margin-left: var(--uc-vertical-toolbar-width, 0);
+  }
+}
+
+/* oneliner block*/
+
+/* Title bar */
+.titlebar-buttonbox {
+  display: none !important;
+}
+
+.titlebar-spacer {
+  display: none !important;
+}
+
+/* Tab bar */
+#navigator-toolbox {
+  border: 0px !important;
+}
+
+#TabsToolbar {
+  margin-left: 20vw !important;
+}
+
+/* Nav bar*/
+#nav-bar {
+  background: transparent !important;
+  margin-top: -32px !important;
+  margin-right: 80vw !important;
+}
+
+/* URL bar */
+
+#urlbar-container {
+  min-width: 100px !important;
+}
+
+#urlbar {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+#tracking-protection-icon-container,
+#page-action-buttons {
+  display: none !important;
+}
