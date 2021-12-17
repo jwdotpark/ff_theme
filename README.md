@@ -10,3 +10,4 @@
 - [ ] change toolbar width on active
 - [ ] UIPanel buttons align to the right
 - [ ] add window control buttons
+- [ ] add window handler zone for dragging
