@@ -3,3 +3,10 @@
 2. Apply userChrome.css on Firefox user profile
 
 ![screenshot](./img/image.psd.png)
+
+#TODO List
+
+- [ ] change URLBar width on active
+- [ ] change toolbar width on active
+- [ ] UIPanel buttons align to the right
+- [ ] add window control buttons
