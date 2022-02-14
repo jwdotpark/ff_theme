@@ -1,9 +1,5 @@
-/* 
-firefox color:
-https://color.firefox.com/?theme=XQAAAAI6AgAAAAAAAABBKYhm849SCicxcUCyhXcGHf3p79EhVPY1ahrnannSLhj71Yd4LPBhuYWhpMuqoA7EkSgNqhoPPlDOpW4TWtdCnJtc1jIYjLQGa0YEx-HHo6HNw4l0SO7rvAqPcoLQhGd9_XtJBWrfwfL3Kk202kTydqSAN82mVOLvYpjmBTOMyJSjIM92EqMR5NRROdiMw5MQbqxYKwKqM-TzPnIcxltz-Xr6sM4-rB4JBALqMsbuA9bbHBx36Sp1LgyYrUYTDP3634QyG3dWSN3LlQ5kfqAWL8UX7aoZZntzRBLbUSDrArY7X-nbqpu3zHNw5APs6cVIJq_X04AmH5NvsQy7AGNdG90qBOkgtsplhwzRzZA_-1UcVQ 
-*/
-
 /* Firefox Compact Mode
+ *
  * Copyright (c) 2021 Danny Colin
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
@@ -11,33 +7,25 @@ https://color.firefox.com/?theme=XQAAAAI6AgAAAAAAAABBKYhm849SCicxcUCyhXcGHf3p79E
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-@-moz-document url("about:newtab") {
-  body {
-    background-color: #282a36 !important;
-    /* background-color: rgba(40, 42, 54, 0.5) !important; */
-  }
-}
-
 :root {
-  /* margin-top: 3px !important; */
   /* Tabbar: reduce tab margin */
-  --tab-block-margin: 3px !important;
+  --tab-block-margin: 4px !important;
 }
 
 /* Tab: Reduce height */
 .tabbrowser-tab {
-  margin-top: -1px important;
-  /* padding-bottom: 2px important; */
-  min-height: 23px !important;
-  max-height: 23px !important;
-  /* border-radius: 12px !important; */
+  min-height: 24px !important;
+}
+
+.tab-background[selected] {
+  border-radius: 5px !important;
+  border: 2px #6272a4 solid !important;
 }
 
 /* Tab: Ensure tab height doesn't augment when arrowscrollbox is visible  */
 #tabbrowser-arrowscrollbox {
-  --tab-min-height: 30px !important;
+  --tab-min-height: 32px !important;
   max-height: var(--tab-min-height);
-  margin: 2px !important;
 }
 
 /* Tab: Attention icon */
@@ -49,33 +37,17 @@ https://color.firefox.com/?theme=XQAAAAI6AgAAAAAAAABBKYhm849SCicxcUCyhXcGHf3p79E
   > .tab-content[pinned][titlechanged]:not([selected="true"]) {
   background-position-x: left 2px !important;
   background-position-y: bottom 12.5px !important;
-  border-radius: 12px !important;
-}
-
-/* tab border */
-/* .tab-content[selected="true"] {
-  margin-top: 1px !important;
-  margin-bottom: 1px !important;
-  border: 3px solid #50527f !important;
-  border-radius: 12px !important;
-} */
-
-.tab-content[selected="true"]:active {
-  /* transition-property: transform; */
-  transition-duration: 0s;
-  transition-timing-function: ease-in-out;
-  transform: scale(0.975);
 }
 
 /* URLBar: Fix vertical alignment */
 #urlbar[breakout="true"]:not([open="true"]) {
-  --urlbar-height: 30px !important;
-  --urlbar-toolbar-height: 30px !important;
+  --urlbar-height: 20px !important;
+  --urlbar-toolbar-height: 24px !important;
 }
 
 /* URLBar: Fix URL address vertical aligment when megabar is open */
 #urlbar[breakout="true"][open="true"] {
-  --urlbar-toolbar-height: 30px !important;
+  --urlbar-toolbar-height: 22px !important;
 }
 
 /* URLBar: Reduce row items padding */
@@ -88,7 +60,7 @@ https://color.firefox.com/?theme=XQAAAAI6AgAAAAAAAABBKYhm849SCicxcUCyhXcGHf3p79E
 .urlbarView-type-icon {
   width: 10px !important;
   height: 10px !important;
-  /* margin-bottom: 0 !important; */
+  margin-bottom: 0 !important;
   margin-inline-start: 10px !important;
 }
 
@@ -111,7 +83,8 @@ https://color.firefox.com/?theme=XQAAAAI6AgAAAAAAAABBKYhm849SCicxcUCyhXcGHf3p79E
 /* Toolbar: Reduce spacing */
 #urlbar-container {
   --urlbar-container-height: 32px !important;
-  /* margin-bottom: 2px !important; */
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 /* Reload Button: Fix vertical alignment */
@@ -138,12 +111,7 @@ https://color.firefox.com/?theme=XQAAAAI6AgAAAAAAAABBKYhm849SCicxcUCyhXcGHf3p79E
   }
 }
 
-#star-button-box,
-#back-button,
-#forward-button {
-  display: none !important;
-}
-
+/* ---------------------------------- */
 /* ------------------------------- */
 /*
  * Description: Personnal toolbar in vertical position on the left
@@ -229,7 +197,7 @@ See the above repository for updates as well as full license text. */
 
 /* Title bar */
 .titlebar-buttonbox {
-  display: none !important;
+  /* display: none !important; */
 }
 
 .titlebar-spacer {
@@ -242,20 +210,20 @@ See the above repository for updates as well as full license text. */
 }
 
 #TabsToolbar {
-  margin-left: 20vw !important;
+  margin-left: 30vw !important;
 }
 
 /* Nav bar*/
 #nav-bar {
   background: transparent !important;
   margin-top: -32px !important;
-  margin-right: 80vw !important;
+  margin-right: 70vw !important;
 }
 
 /* URL bar */
 
 #urlbar-container {
-  min-width: 100px !important;
+  min-width: 200px !important;
 }
 
 #urlbar {
